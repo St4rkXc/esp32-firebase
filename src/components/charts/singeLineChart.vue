@@ -2,6 +2,7 @@
 import { onMounted, ref, watch } from 'vue'
 import { Chart, registerables } from 'chart.js'
 
+
 Chart.register(...registerables)
 const lineChartCanvas = ref(null)
 let chartInstance: Chart | null = null
@@ -25,14 +26,6 @@ const lineChartData = {
             data: [] as number[],
             borderColor: 'rgba(75, 192, 192, 1)',
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            fill: true,
-            tension: 0.1,
-        },
-        {
-            label: props.label2,
-            data: [] as number[],
-            borderColor: 'rgba(255, 99, 132, 1)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
             fill: true,
             tension: 0.1,
         },
@@ -65,14 +58,6 @@ watch(
     },
 )
 
-watch(
-    () => props.secondData,
-    (newTemperature) => {
-        if (newTemperature !== null) {
-            updateChartData(props.label2 as string, newTemperature as number)
-        }
-    },
-)
 
 onMounted(() => {
     if (lineChartCanvas.value) {
@@ -81,7 +66,17 @@ onMounted(() => {
             data: lineChartData,
             options: {
                 responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+
+                },
                 scales: {
+                    label : {
+                        display: false,
+                        position: 'top',
+                    },
                     y: {
                         beginAtZero: true,
                         grid: {
@@ -105,7 +100,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="w-full h-full">
-        <canvas ref="lineChartCanvas" class="canvas"></canvas>
+    <div class="h-full w-full">
+        <canvas ref="lineChartCanvas" class="canvas" ></canvas>
     </div>
 </template>

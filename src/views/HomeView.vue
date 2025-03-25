@@ -3,6 +3,8 @@ import { onMounted, ref } from 'vue'
 import { database } from '@/firebaseConfig' // Adjust the path as necessary
 import { ref as dbRef, onValue } from 'firebase/database'
 import LineChart from '@/components/charts/lineChart.vue'
+import dataLabel from '@/components/data/dataLabel.vue'
+import SingeLineChart from '@/components/charts/singeLineChart.vue'
 
 const humiditySensorData = ref<number | undefined>(undefined)
 const tempSensorData = ref<number | undefined>(undefined)
@@ -24,12 +26,41 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="container mx-auto">
-        <h1>Firebase Data Fetch Example</h1>
-        <p>Value from Humidity: {{ humiditySensorData }} %</p>
-        <p>Value from Temp Sensor: {{ tempSensorData }} %</p>
+    <div class="container mx-auto px-3">
         <div class="mt-12">
-            <LineChart :humidity="humiditySensorData" :temperature="tempSensorData" />
+            <div class="flex gap-4 flex-col md:flex-row">
+                <dataLabel :Data="humiditySensorData ?? 0" Label="Humidity" class="flex-1"/>
+                <dataLabel :Data="tempSensorData ?? 0" Label="Temparature" class="flex-1" />
+            </div>
+            <div class="h-[400px] w-full p-6 rounded-xl shadow-sm border border-zinc-300 mt-8">
+                <LineChart 
+                :firstData="humiditySensorData" 
+                :secondData="tempSensorData" 
+                label1="Human"
+                label2="Machine"
+                />
+            </div>
+            <div class="flex flex-row gap-x-4 mt-8">
+                <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <p class="text-zinc-800 text-xl font-semibold">Humidity</p>
+                        <div>
+                            <p class=" text-zinc rounded text-2xl font-semibold">{{ humiditySensorData }} %</p>
+                        </div>
+                    </div>
+                    <SingeLineChart :firstData="humiditySensorData" />
+                </div>
+                <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <p class="text-zinc-800 text-xl font-semibold">Temp</p>
+                        <div>
+                            <p class=" text-zinc rounded text-2xl font-semibold">{{ humiditySensorData }} C</p>
+                        </div>
+                    </div>
+                    <SingeLineChart :firstData="tempSensorData" />
+                </div>
+                <!-- <SingeLineChart :firstData="humiditySensorData" /> -->
+            </div>
         </div>
     </div>
 </template>
