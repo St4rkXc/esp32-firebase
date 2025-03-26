@@ -29,35 +29,41 @@ onMounted(() => {
     <div class="container mx-auto px-3">
         <div class="mt-12">
             <div class="flex gap-4 flex-col md:flex-row">
-                <dataLabel :Data="humiditySensorData ?? 0" Label="Humidity" class="flex-1"/>
-                <dataLabel :Data="tempSensorData ?? 0" Label="Temparature" class="flex-1" />
+               
+                
             </div>
             <div class="h-[400px] w-full p-6 rounded-xl shadow-sm border border-zinc-300 mt-8">
                 <LineChart 
                 :firstData="humiditySensorData" 
                 :secondData="tempSensorData" 
-                label1="Human"
-                label2="Machine"
+                label1="Humidity"
+                label2="Temperature"
                 />
             </div>
             <div class="flex flex-row gap-x-4 mt-8">
-                <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300">
-                    <div class="flex justify-between items-start mb-4">
-                        <p class="text-zinc-800 text-xl font-semibold">Humidity</p>
-                        <div>
-                            <p class=" text-zinc rounded text-2xl font-semibold">{{ humiditySensorData }} %</p>
+                <div class="w-full space-y-3 flex flex-col">
+                    <dataLabel :Data="tempSensorData ?? 0" Label="Temparature" type="celcius" class="flex-1" />
+                    <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300">
+                        <div class="flex justify-between items-start mb-4">
+                            <p class="text-zinc-800 text-xl font-semibold">Humidity</p>
+                            <div>
+                                <p class=" text-zinc rounded text-2xl font-semibold">{{ humiditySensorData }} %</p>
+                            </div>
                         </div>
+                        <SingeLineChart :firstData="humiditySensorData" />
                     </div>
-                    <SingeLineChart :firstData="humiditySensorData" />
                 </div>
-                <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300">
-                    <div class="flex justify-between items-start mb-4">
-                        <p class="text-zinc-800 text-xl font-semibold">Temp</p>
-                        <div>
-                            <p class=" text-zinc rounded text-2xl font-semibold">{{ humiditySensorData }} C</p>
+                <div class="w-full space-y-3 flex flex-col">
+                    <dataLabel :Data="humiditySensorData ?? 0" Label="Humidity" type="percent" class="flex-1"/>
+                    <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300">
+                        <div class="flex justify-between items-start mb-4">
+                            <p class="text-zinc-800 text-xl font-semibold">Temp</p>
+                            <div>
+                                <p class=" text-zinc rounded text-2xl font-semibold">{{ humiditySensorData }} C</p>
+                            </div>
                         </div>
+                        <SingeLineChart :firstData="tempSensorData" />
                     </div>
-                    <SingeLineChart :firstData="tempSensorData" />
                 </div>
                 <!-- <SingeLineChart :firstData="humiditySensorData" /> -->
             </div>
