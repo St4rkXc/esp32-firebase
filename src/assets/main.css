@@ -75,6 +75,9 @@
     }
 }
 
+@layer components{
+}
+
 html {
 	font-family: 'Figtree', sans-serif;
 }

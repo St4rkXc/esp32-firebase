@@ -28,10 +28,8 @@ onMounted(() => {
 <template>
     <div class="container mx-auto px-3">
         <div class="mt-12">
-            <div class="flex gap-4 flex-col md:flex-row">
-               
-                
-            </div>
+            <p class="text-zinc-800 text-xl font-medium">ESP32 : Garden monitoring</p>
+            <p class="text-base text-zinc-400 font-base">Tanaman Cabe Rawit</p>
             <div class="h-[400px] w-full p-6 rounded-xl shadow-sm border border-zinc-300 mt-8">
                 <LineChart 
                 :firstData="humiditySensorData" 
