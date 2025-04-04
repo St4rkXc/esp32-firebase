@@ -23,16 +23,16 @@ const lineChartData = {
         {
             label: props.label1,
             data: [] as number[],
-            borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(24, 24, 27, 1)',
+            backgroundColor: 'rgba(24, 24, 27, 0.0)',
             fill: true,
             tension: 0.1,
         },
         {
             label: props.label2,
             data: [] as number[],
-            borderColor: 'rgba(255, 99, 132, 1)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: '#a1a1aa',
+            backgroundColor: 'rgba(255, 99, 132, 0.0)',
             fill: true,
             tension: 0.1,
         },
@@ -46,7 +46,7 @@ const updateChartData = (label: string, value: number) => {
         if (lineChartData.labels.length === dataset.data.length - 1) {
             lineChartData.labels.push(lineChartData.labels.length + 1)
         }
-        if (dataset.data.length > 20) {
+        if (dataset.data.length > 40) {
             dataset.data.shift()
             lineChartData.labels.shift()
         }

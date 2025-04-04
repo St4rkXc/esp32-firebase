@@ -24,8 +24,8 @@ const lineChartData = {
         {
             label: props.label1,
             data: [] as number[],
-            borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(24, 24, 27, 1)',
+            backgroundColor: 'rgba(24, 24, 27, 0.1)',
             fill: true,
             tension: 0.1,
         },

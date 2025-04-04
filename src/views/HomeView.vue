@@ -5,6 +5,7 @@ import { ref as dbRef, onValue } from 'firebase/database'
 import LineChart from '@/components/charts/lineChart.vue'
 import dataLabel from '@/components/data/dataLabel.vue'
 import SingeLineChart from '@/components/charts/singeLineChart.vue'
+import mainNavbar from '@/components/mainNavbar.vue'
 
 const humiditySensorData = ref<number | undefined>(undefined)
 const tempSensorData = ref<number | undefined>(undefined)
@@ -27,11 +28,25 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="container mx-auto px-3">
-        <div class="mt-12">
-            <p class="text-zinc-800 text-xl font-medium">ESP32 : Garden monitoring</p>
-            <p class="text-base text-zinc-400 font-base">Tanaman Cabe Rawit</p>
-            <div class="h-[400px] w-full p-6 rounded-xl shadow-sm border border-zinc-300 mt-8">
+    <mainNavbar />
+    <div class=" px-24">
+        <div class="mt-4">
+            <div class="flex row justify-between items-center">
+                <div>
+                    <p class="text-zinc-800 text-2xl font-bold">Dashboard</p>
+                    <p class="text-base text-zinc-400 font-base">Place to see all of your garden information</p>
+                </div>
+                <div>
+                    <p class="text-zinc-800 text-base font-medium">Last updated: {{ new Date().toLocaleString() }}</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-4 gap-4 mt-4">
+                <dataLabel :Data="humiditySensorData ?? 0" Label="Humidity" type="percent" desc="Kelembapan tanah" class="flex-1" />
+                <dataLabel :Data="tempSensorData ?? 0" Label="Temperature" desc="Suhu udara" type="celcius" class="flex-1"/>
+                <dataLabel :Data="humiditySensorData ?? 0" Label="Humidity" type="percent" desc="Kelembapan tanah" class="flex-1" />
+                <dataLabel :Data="tempSensorData ?? 0" Label="Temperature" desc="Suhu udara" type="celcius" class="flex-1"/>
+            </div>
+            <div class="h-[400px] w-full p-6 rounded-xl shadow-sm border border-zinc-200 mt-4">
                 <LineChart 
                 :firstData="humiditySensorData" 
                 :secondData="tempSensorData" 
@@ -39,10 +54,9 @@ onMounted(() => {
                 label2="Temperature"
                 />
             </div>
-            <div class="flex flex-row gap-x-4 mt-8">
+            <div class="flex flex-row gap-x-4 mt-4">
                 <!-- Humidity Sensor data -->
                 <div class="w-full space-y-3 flex flex-col">
-                    <dataLabel :Data="humiditySensorData ?? 0" Label="Humidity" type="percent" class="flex-1" />
                     <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300">
                         <div class="flex justify-between items-start mb-4">
                             <p class="text-zinc-800 text-xl font-semibold">Humidity</p>
@@ -55,7 +69,6 @@ onMounted(() => {
                 </div>
                 <!-- Temp Sensor Data -->
                 <div class="w-full space-y-3 flex flex-col">
-                    <dataLabel :Data="tempSensorData ?? 0" Label="Temperature" type="celcius" class="flex-1"/>
                     <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300">
                         <div class="flex justify-between items-start mb-4">
                             <p class="text-zinc-800 text-xl font-semibold">Temp</p>
