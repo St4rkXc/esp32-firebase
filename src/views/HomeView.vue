@@ -16,7 +16,7 @@ avg.fetchAvgData()
 <template>
     <mainNavbar />
     <div class=" px-24">
-        <div class="mt-4">
+        <div class="mt-4 mb-4">
             <PagesHeader pages="Dashboard" description="Overview of all data" />
             <div class="grid grid-cols-4 gap-4 mt-4">
                 <dataLabel :Data="avg.esp1humAVG ?? 0" Label="Humidity" type="percent" desc="Kelembapan tanah" sector="(S1)" :lowest="50" class="flex-1" />
@@ -52,9 +52,9 @@ avg.fetchAvgData()
                     </keep-alive>
                 </div>
             </div>
-            <div class="flex flex-row gap-x-4 mt-4 ">
+            <div class="flex flex-row gap-x-4 mt-4 h-[400px]">
                 <!-- Humidity Sensor data -->
-                <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300">
+                <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300 h-fit">
                     <div class="flex justify-between items-start mb-4">
                         <div class="mb-4">
                             <p class="text-zinc-800 text-xl font-semibold">Humidity</p>
@@ -64,11 +64,11 @@ avg.fetchAvgData()
                             <p class=" text-zinc rounded text-2xl font-semibold">{{ avg.allhumAVG }} %</p>
                         </div>
                     </div>
-                    <SingeLineChart :firstData="avg.allhumAVG" />
+                    <SingeLineChart :firstData="avg.allhumAVG" class="canvas-200" />
                 </div>
                 
                 <!-- Temp Sensor Data -->
-                <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300">
+                <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300 h-fit">
                     <div class="flex justify-between items-start mb-4">
                         <div class="mb-4">
                             <p class="text-zinc-800 text-xl font-semibold">Temperature</p>
@@ -78,10 +78,11 @@ avg.fetchAvgData()
                             <p class=" text-zinc rounded text-2xl font-semibold">{{ avg.alltempAVG }} C</p>
                         </div>
                     </div>
-                    <SingeLineChart :firstData="avg.alltempAVG" />
+                    <SingeLineChart :firstData="avg.alltempAVG" class="canvas-200" />
                 </div>
                 <!-- <SingeLineChart :firstData="humiditySensorData" /> -->
             </div>
         </div>
     </div>
 </template>
+

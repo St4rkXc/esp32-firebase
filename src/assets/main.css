@@ -94,3 +94,7 @@ html {
 .canvas {
 	@apply max-w-full max-h-full !important;
 }
+
+.canvas-200 {
+    @apply max-h-[250px] w-full !important;
+}

@@ -15,7 +15,11 @@ const props = defineProps({
     },
     label2: {
         type: String,
-    }
+    },
+    class: {
+        type: String,
+        default: 'canvas',
+    },
 })
 
 const lineChartData = {
@@ -66,6 +70,7 @@ onMounted(() => {
             data: lineChartData,
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 plugins: {
                     legend: {
                         display: false,
@@ -101,6 +106,6 @@ onMounted(() => {
 
 <template>
     <div class="h-full w-full">
-        <canvas ref="lineChartCanvas" class="canvas" ></canvas>
+        <canvas ref="lineChartCanvas" :class="props.class" ></canvas>
     </div>
 </template>
