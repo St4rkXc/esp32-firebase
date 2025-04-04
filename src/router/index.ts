@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import SectorViewVue from '@/views/SectorView.vue'
 import PotsViewVue from '@/views/PotsView.vue'
 import InformationViewVue from '@/views/InformationView.vue'
-import { KeepAlive } from 'vue'
+
 
 
 

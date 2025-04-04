@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-const props = defineProps<{
+const { pages, description } = defineProps<{
     pages: string
     description: string
 }>()
