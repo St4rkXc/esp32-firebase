@@ -22,6 +22,7 @@ const fetchDataFire = () => {
 
 onMounted(() => {
     fetchDataFire()
+    // console.log('Fetching data from Firebase on Mounted')
 })
 </script>
 
