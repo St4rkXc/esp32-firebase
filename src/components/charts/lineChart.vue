@@ -81,6 +81,11 @@ onMounted(() => {
             data: lineChartData,
             options: {
                 responsive: true,
+                plugins: {
+                    legend: {
+                        display: false, // Disable the legend
+                    },
+                },
                 scales: {
                     y: {
                         beginAtZero: true,
