@@ -79,6 +79,9 @@
     .router-link{
         @apply text-zinc-400 font-medium text-base hover:text-zinc-800 duration-200
     }
+    .router-link-active{
+        @apply text-zinc-800 font-medium text-base
+    }
     .navbar{
         @apply py-3 !important
     }

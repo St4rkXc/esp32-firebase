@@ -5,7 +5,8 @@ import { ref as dbRef, onValue } from 'firebase/database'
 import LineChart from '@/components/charts/lineChart.vue'
 import dataLabel from '@/components/data/dataLabel.vue'
 import SingeLineChart from '@/components/charts/singeLineChart.vue'
-import mainNavbar from '@/components/mainNavbar.vue'
+import mainNavbar from '@/components/interface/mainNavbar.vue'
+import PagesHeader from '@/components/interface/pagesHeader.vue'
 
 const humiditySensorData = ref<number | undefined>(undefined)
 const tempSensorData = ref<number | undefined>(undefined)
@@ -31,15 +32,7 @@ onMounted(() => {
     <mainNavbar />
     <div class=" px-24">
         <div class="mt-4">
-            <div class="flex row justify-between items-center">
-                <div>
-                    <p class="text-zinc-800 text-2xl font-bold">Dashboard</p>
-                    <p class="text-base text-zinc-400 font-base">Place to see all of your garden information</p>
-                </div>
-                <div>
-                    <p class="text-zinc-800 text-base font-medium">Last updated: {{ new Date().toLocaleString() }}</p>
-                </div>
-            </div>
+            <PagesHeader pages="Dashboard" description="Overview of all data" />
             <div class="grid grid-cols-4 gap-4 mt-4">
                 <dataLabel :Data="humiditySensorData ?? 0" Label="Humidity" type="percent" desc="Kelembapan tanah" :lowest="50" class="flex-1" />
                 <dataLabel :Data="tempSensorData ?? 0" Label="Temperature" desc="Suhu udara" type="celcius" :lowest="25" class="flex-1"/>
@@ -50,7 +43,7 @@ onMounted(() => {
                 <div class="flex flex-row justify-between items-center">
                     <div>
                         <p class="text-zinc-800 text-xl font-semibold">Overview</p>
-                        <p class="text-zinc-500 text-base font-base">Avrage Temperature & Humidity of all Sector</p>
+                        <p class="text-zinc-500 text-base font-base">Average Temperature & Humidity of all Sector</p>
                     </div>
                     <div class="flex flex-row gap-x-4">
                         <div class="flex flex-row gap-x-2 items-center">
@@ -64,12 +57,14 @@ onMounted(() => {
                     </div>
                 </div>
                 <div class="h-[300px]">
-                    <LineChart 
-                    :firstData="humiditySensorData" 
-                    :secondData="tempSensorData" 
-                    label1="Humidity"
-                    label2="Temperature"
-                    />
+                    <keep-alive>
+                        <LineChart 
+                        :firstData="humiditySensorData" 
+                        :secondData="tempSensorData" 
+                        label1="Humidity"
+                        label2="Temperature"
+                        />
+                    </keep-alive>
                 </div>
             </div>
             <div class="flex flex-row gap-x-4 mt-4">
@@ -79,7 +74,7 @@ onMounted(() => {
                         <div class="flex justify-between items-start mb-4">
                             <div class="mb-4">
                                 <p class="text-zinc-800 text-xl font-semibold">Humidity</p>
-                                <p class="text-zinc-500 text-base font-base">Avrage Humidity of all Sector</p>
+                                <p class="text-zinc-500 text-base font-base">Average Humidity of all Sector</p>
                             </div>
                             <div>
                                 <p class=" text-zinc rounded text-2xl font-semibold">{{ humiditySensorData }} %</p>
@@ -94,7 +89,7 @@ onMounted(() => {
                         <div class="flex justify-between items-start mb-4">
                             <div class="mb-4">
                                 <p class="text-zinc-800 text-xl font-semibold">Temperature</p>
-                                <p class="text-zinc-500 text-base font-base">Avrage Temperature of all Sector</p>
+                                <p class="text-zinc-500 text-base font-base">Average Temperature of all Sector</p>
                             </div>
                             <div>
                                 <p class=" text-zinc rounded text-2xl font-semibold">{{ tempSensorData }} C</p>
