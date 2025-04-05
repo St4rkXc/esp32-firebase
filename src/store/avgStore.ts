@@ -1,4 +1,4 @@
-// src/store/avgStore.ts
+
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { database } from '@/firebaseConfig' // Adjust the path as necessary
