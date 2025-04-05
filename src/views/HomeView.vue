@@ -15,17 +15,17 @@ avg.fetchAvgData()
 
 <template>
     <mainNavbar />
-    <div class=" px-24">
+    <div class=" px-4 md:px-12 xl:px-24">
         <div class="mt-4 mb-4">
             <PagesHeader pages="Dashboard" description="Overview of all data" />
-            <div class="grid grid-cols-4 gap-4 mt-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mt-4">
                 <dataLabel :Data="avg.esp1humAVG ?? 0" Label="Humidity" type="percent" desc="Kelembapan tanah" sector="(S1)" :lowest="50" class="flex-1" />
                 <dataLabel :Data="avg.esp1tempAVG ?? 0" Label="Temperature" desc="Suhu udara" type="celcius" sector="(S1)" :lowest="25" class="flex-1"/>
                 <dataLabel :Data="avg.esp2humAVG ?? 0" Label="Humidity" type="percent" desc="Kelembapan tanah" sector="(S2)" :lowest="50" class="flex-1" />
                 <dataLabel :Data="avg.esp2tempAVG ?? 0" Label="Temperature" desc="Suhu udara" type="celcius" sector="(S2)" :lowest="25" class="flex-1"/>
             </div>
             <div class=" w-full p-6 rounded-xl shadow-sm border border-zinc-200 mt-4 flex flex-col gap-4">
-                <div class="flex flex-row justify-between items-center">
+                <div class="flex flex-col xl:flex-row xl:justify-between xl:items-center">
                     <div>
                         <p class="text-zinc-800 text-xl font-semibold">Overview</p>
                         <p class="text-zinc-500 text-base font-base">Average Temperature & Humidity of all Sector</p>
@@ -41,18 +41,19 @@ avg.fetchAvgData()
                         </div>
                     </div>
                 </div>
-                <div class="h-[300px]">
+                <div class="h-fit xl:h-[300px]">
                     <keep-alive>
                         <LineChart 
                         :firstData="avg.allhumAVG" 
                         :secondData="avg.alltempAVG" 
                         label1="Humidity"
                         label2="Temperature"
+                        class="h-fit"
                         />
                     </keep-alive>
                 </div>
             </div>
-            <div class="flex flex-row gap-x-4 mt-4 h-[400px]">
+            <div class="flex flex-col lg:flex-row gap-4 mt-4 h-[400px]">
                 <!-- Humidity Sensor data -->
                 <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300 h-fit">
                     <div class="flex justify-between items-start mb-4">
