@@ -5,7 +5,7 @@ import { useAvgStore } from '@/store/avgStore'
 import { usePotStore } from '@/store/potStore'
 import SingeLineChart from '@/components/charts/singeLineChart.vue'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import singlePotData from '@/components/interface/singlePotData.vue'
+import singlePotData from '@/components/data/singlePotData.vue'
 
 const avg = useAvgStore()
 avg.fetchAvgData()
@@ -13,8 +13,8 @@ avg.fetchAvgData()
 const pot = usePotStore()
 pot.fetchPotData()
 
-console.log(pot.pots.pot6?.hum)
-console.log(avg.esp1humAVG)
+// console.log(pot.pots.pot6?.hum)
+// console.log(avg.esp1humAVG)
 </script>
 
 <template>

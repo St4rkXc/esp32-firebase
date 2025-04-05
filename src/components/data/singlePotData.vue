@@ -17,8 +17,8 @@ console.log(`Data Status: ${HumTemp.value}`)
             <div class="text-center">
                 <p class="text-zinc-800 text-xl font-semibold">{{ props.Label }}</p>
                 <p class="text-zinc-800 text-base font-base">Status :
-                    <span v-if="DataTemp > 25 && DataHum < 50 " class="text-rose-600">Warning! Tanaman Perlu Tindakan </span>
-                    <span v-else-if="DataTemp > 25 || DataHum < 50 " class="text-amber-500">Alert! Tanaman Perlu Tindakan</span>
+                    <span v-if="DataTemp > 25 && DataHum < 50 " class="text-rose-600 font-medium">Alert! Kondisi Tanaman Kritis </span>
+                    <span v-else-if="DataTemp > 25 || DataHum < 50 " class="text-amber-500 font-medium">Warning! Tanaman Perlu Tindakan</span>
                     <span v-else class="text-zinc-600">Tanaman Stabil, Tidak Perlu Tindakan</span>
                 </p>
             </div>
