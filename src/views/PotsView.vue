@@ -12,10 +12,10 @@ pot.fetchPotData()
 
 <template>
     <mainNavbar />
-    <div class="px-24">
+    <div class="custom-container">
         <div class="my-4">
             <pagesHeader pages="Pots View" description="Overview of Detailed Pots Data" />
-            <div class="grid grid-cols-3 gap-4 mt-4">
+            <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4  gap-4 mt-4">
                 <detailSinglePot 
                 :DataHum="pot.pots.pot1?.hum" 
                 :DataTemp="pot.pots.pot1?.temp"

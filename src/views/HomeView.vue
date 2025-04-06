@@ -15,10 +15,10 @@ avg.fetchAvgData()
 
 <template>
     <mainNavbar />
-    <div class=" px-4 md:px-12 xl:px-24">
+    <div class=" custom-container">
         <div class="mt-4 mb-4">
             <PagesHeader pages="Dashboard" description="Overview of all data" />
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mt-4">
+            <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-4 mt-4">
                 <dataLabel :Data="avg.esp1humAVG ?? 0" Label="Humidity" type="percent" desc="Kelembapan tanah" sector="(S1)" :lowest="50" class="flex-1" />
                 <dataLabel :Data="avg.esp1tempAVG ?? 0" Label="Temperature" desc="Suhu udara" type="celcius" sector="(S1)" :lowest="25" class="flex-1"/>
                 <dataLabel :Data="avg.esp2humAVG ?? 0" Label="Humidity" type="percent" desc="Kelembapan tanah" sector="(S2)" :lowest="50" class="flex-1" />
@@ -57,12 +57,12 @@ avg.fetchAvgData()
                 <!-- Humidity Sensor data -->
                 <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300 h-fit">
                     <div class="flex justify-between items-start mb-4">
-                        <div class="mb-4">
+                        <div class="mb-4 flex-1">
                             <p class="text-zinc-800 text-xl font-semibold">Humidity</p>
                             <p class="text-zinc-500 text-base font-base">Average Humidity of all Sector</p>
                         </div>
-                        <div>
-                            <p class=" text-zinc rounded text-2xl font-semibold">{{ avg.allhumAVG }} %</p>
+                        <div class="flex-1 text-end">
+                            <p class=" text-zinc rounded text-[40px] md:text-2xl font-semibold">{{ avg.allhumAVG }} %</p>
                         </div>
                     </div>
                     <SingeLineChart :firstData="avg.allhumAVG" class="canvas-200" />
@@ -71,12 +71,12 @@ avg.fetchAvgData()
                 <!-- Temp Sensor Data -->
                 <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300 h-fit">
                     <div class="flex justify-between items-start mb-4">
-                        <div class="mb-4">
+                        <div class="mb-4 flex-1">
                             <p class="text-zinc-800 text-xl font-semibold">Temperature</p>
                             <p class="text-zinc-500 text-base font-base">Average Temperature of all Sector</p>
                         </div>
-                        <div>
-                            <p class=" text-zinc rounded text-2xl font-semibold">{{ avg.alltempAVG }} C</p>
+                        <div class="flex-1 text-end">
+                            <p class=" text-zinc rounded text-[40px] md:text-2xl font-semibold">{{ avg.alltempAVG }} C</p>
                         </div>
                     </div>
                     <SingeLineChart :firstData="avg.alltempAVG" class="canvas-200" />

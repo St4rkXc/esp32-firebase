@@ -19,9 +19,9 @@ pot.fetchPotData()
 
 <template>
     <MainNavbar />
-    <div class="px-24 mt-4">
+    <div class="custom-container mt-4">
         <PagesHeader pages="Sector View" description="Overview of Detailed Sector Data" />
-        <div class="flex flex-row gap-x-4 mt-4 max-h-[350px]">
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 mt-4 xl:max-h-[350px]">
             <!-- Humidity Sensor data -->
             <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300 h-fit">
                 <div class="flex justify-between items-start mb-4">
@@ -59,7 +59,7 @@ pot.fetchPotData()
             </div>
             <!-- <SingeLineChart :firstData="humiditySensorData" /> -->
         </div>
-        <div class="flex flex-row gap-x-4 max-h-[350px] my-16">
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 xl:max-h-[350px] my-4 xl:my-16">
             <!-- Humidity Sensor data -->
             <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300 h-fit">
                 <div class="flex justify-between items-start mb-4">
@@ -107,7 +107,7 @@ pot.fetchPotData()
                 <TabsTrigger value="sector2" class="rounded-[5px]"> Sector 2 </TabsTrigger>
             </TabsList>
             <TabsContent value="sector1" class="my-4">
-                <div class="grid grid-cols-3 gap-4">
+                <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
                     <singlePotData Label="Tanaman Cabe 1" :DataHum="pot.pots.pot1?.hum" :DataTemp="pot.pots.pot1?.temp"/>
                     <singlePotData Label="Tanaman Cabe 2" :DataHum="pot.pots.pot2?.hum" :DataTemp="pot.pots.pot2?.temp"/>
                     <singlePotData Label="Tanaman Cabe 3" :DataHum="pot.pots.pot3?.hum" :DataTemp="pot.pots.pot3?.temp"/>
@@ -116,7 +116,7 @@ pot.fetchPotData()
                 </div>
             </TabsContent>
             <TabsContent value="sector2" class="my-4"> 
-                <div class="grid grid-cols-3 gap-4">
+                <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
                     <singlePotData Label="Tanaman Cabe 6" :DataHum="pot.pots.pot6?.hum" :DataTemp="pot.pots.pot6?.temp"/>
                     <singlePotData Label="Tanaman Cabe 7" :DataHum="pot.pots.pot7?.hum" :DataTemp="pot.pots.pot7?.temp"/>
                     <singlePotData Label="Tanaman Cabe 8" :DataHum="pot.pots.pot8?.hum" :DataTemp="pot.pots.pot8?.temp"/>

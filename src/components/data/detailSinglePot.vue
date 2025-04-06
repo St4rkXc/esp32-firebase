@@ -13,13 +13,13 @@ defineProps<{
 
 <template>
     <div class="p-8 border rounded-xl shadow-sm" :class="[DataTemp > 25 && DataHum < 50 ? 'border-rose-600 border-2' : 'border-zinc-200 border']">
-        <div class="flex justify-between items-center">
-            <div>
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="text-center md:text-start my-4 md:my-0">
                 <p class="text-zinc-800 text-2xl font-semibold">{{ ttile }}</p>
                 <p class="text-zinc-500 text-base font-base">{{ sector }}</p>
             </div>
-            <div class="flex items-center gap-6">
-                <div class="flex flex-col justify-center items-center">
+            <div class="flex items-center gap-6 w-full md:w-fit">
+                <div class="flex flex-col justify-center items-center w-full">
                     <p class="text-2xl font-semibold" :class="DataHum < 50 ? 'text-rose-600' :'text-zinc-800'">{{ DataHum }} %</p>
                     <div class="flex gap-1 items-center">
                         <div class="rounded-full bg-zinc-800 w-3 h-3"></div>
@@ -27,7 +27,7 @@ defineProps<{
                     </div>
                 </div>
                 <div class="h-16 w-[1px] bg-zinc-200"></div>
-                <div class="flex flex-col justify-center items-center">
+                <div class="flex flex-col justify-center items-center w-full">
                     <p class="text-2xl  font-semibold" :class="[DataTemp > 25 ? 'text-rose-600' : 'text-zinc-800']">{{ DataTemp }} C</p>
                     <div class="flex gap-1 items-center">
                         <div class="rounded-full bg-zinc-400 w-3 h-3"></div>
