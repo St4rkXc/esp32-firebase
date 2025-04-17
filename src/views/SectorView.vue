@@ -21,13 +21,13 @@ pot.fetchPotData()
     <MainNavbar />
     <div class="custom-container mt-4">
         <PagesHeader pages="Sector View" description="Overview of Detailed Sector Data" />
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 mt-4 xl:max-h-[350px]">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 xl:max-h-[350px]">
             <!-- Humidity Sensor data -->
             <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300 h-fit">
                 <div class="flex justify-between items-start mb-4">
                     <div class="mb-4">
                         <p class="text-zinc-800 text-xl font-semibold">Humidity</p>
-                        <p class="text-zinc-500 text-base font-base">
+                        <p class="text-zinc-500 text-xs lg:text-base font-base">
                             Average Humidity of Sector 1
                         </p>
                     </div>
@@ -45,7 +45,7 @@ pot.fetchPotData()
                 <div class="flex justify-between items-start mb-4">
                     <div class="mb-4">
                         <p class="text-zinc-800 text-xl font-semibold">Temperature</p>
-                        <p class="text-zinc-500 text-base font-base">
+                        <p class="text-zinc-500 text-xs lg:text-base font-base">
                             Average Temperature of Sector 1
                         </p>
                     </div>
@@ -59,13 +59,13 @@ pot.fetchPotData()
             </div>
             <!-- <SingeLineChart :firstData="humiditySensorData" /> -->
         </div>
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 xl:max-h-[350px] my-4 xl:my-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 xl:max-h-[350px] my-4 xl:my-16">
             <!-- Humidity Sensor data -->
             <div class="w-full p-6 rounded-xl shadow-sm border border-zinc-300 h-fit">
                 <div class="flex justify-between items-start mb-4">
                     <div class="mb-4">
                         <p class="text-zinc-800 text-xl font-semibold">Humidity</p>
-                        <p class="text-zinc-500 text-base font-base">
+                        <p class="text-zinc-500 text-xs lg:text-base font-base">
                             Average Humidity of Sector 2
                         </p>
                     </div>
@@ -85,7 +85,7 @@ pot.fetchPotData()
                 <div class="flex justify-between items-start mb-4">
                     <div class="mb-4">
                         <p class="text-zinc-800 text-xl font-semibold">Temperature</p>
-                        <p class="text-zinc-500 text-base font-base">
+                        <p class="text-zinc-500 text-xs lg:text-base font-base">
                             Average Temperature of Sector 2
                         </p>
                     </div>
