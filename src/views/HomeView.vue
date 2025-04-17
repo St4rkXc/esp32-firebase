@@ -9,6 +9,8 @@ import { useAvgStore } from '@/store/avgStore'
 const avg = useAvgStore()
 avg.fetchAvgData()
 
+console.log(avg.esp2tempAVG)
+
 
 
 </script>
@@ -27,7 +29,7 @@ avg.fetchAvgData()
             <div class=" w-full p-6 rounded-xl shadow-sm border border-zinc-200 mt-4 flex flex-col gap-4">
                 <div class="flex flex-col xl:flex-row xl:justify-between xl:items-center">
                     <div>
-                        <p class="text-zinc-800 text-xl font-semibold">Overview</p>
+                        <p class="text-zinc-800 ext-xl font-semibold">Overview</p>
                         <p class="text-zinc-500 text-base font-base">Average Temperature & Humidity of all Sector</p>
                     </div>
                     <div class="flex flex-row gap-x-4">

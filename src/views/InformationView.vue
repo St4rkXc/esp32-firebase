@@ -7,6 +7,5 @@ import MainNavbar from '@/components/interface/mainNavbar.vue';
 <template>
     <mainNavbar />
     <div>
-
     </div>
 </template>
